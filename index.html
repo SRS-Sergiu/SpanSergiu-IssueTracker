@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>SRS-Issue Tracker</title>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</hedd>
+<body onload="fetchIssues()">
+
+	<div class="container">
+		<h1>SRS - IssueTracker </h1>
+		<div class="jumbotron" >
+			<h3>Add New Issue:</h3>
+			<form action="" id="issueInputForm">
+				<div class="form-group">
+					<label for="issueDescInput">Description</label>
+					<input type="text" class="form-control" id="issueDescInput" placeholder="Describe the Issue">
+				</div>
+				<div class="form-group">
+					<label for="issueSeverityInput">Severity</label>
+					<select id="issueSeverityInput" class="form-control">
+						<option value="Low">Low</option>
+						<option value="Meddium">Meddium</option>
+						<option value="Heigh">Heigh</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="issueAssignedToInput">Assigned To</label>
+					<input type="text" class="form-control" id="issueAssignedToInput" placeholder="Assigned To">
+				</div>
+				<button type="submit" class="btn btn-primary">Add</button>
+			</form>
+		</div>
+		<div class="col-lg-12">  <!-- folosim 12 coloane -->
+			<div id="issuesList">
+				<!-- lasam div gol pentru ca JS sa implementeze, cand iteram lista de probleme -->
+			</div>
+			<div class="footer" align="center">
+				<p>&copy;SRS-IssueTracker</p>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+<!-- JavaScript src -->
+	<script src="https://chancejs.com/chance.min.js"></script>  <!-- ChanceJs-> indentificator global -->
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+	<script src="main.js"></script>
+
+<!-- call Ajax - conectam la pagina php-->
+	<!-- <script>
+		var ajax = new XMLHttpRequest();
+		var method = "GET";
+		var url = "data.php";
+		var asynchron = true;
+
+		ajax.open(method, url, asynchron);
+
+		// sending ajax request
+		ajax.send();
+
+
+		//receiving response from data.php
+		ajax.onreadystatechange = function()
+		{
+			if (this.readyState == 4 && this.status == 200)
+			 {
+			 	var data = JSON.parse(this.responseText);
+				console.log(data); //fpr debugging
+
+				//returneaza valoare html din DB
+				var html = "";
+				for(var a = 0; a < data.length; a++)
+				{
+					//exemplu de adaugare valoare din baza de data in campul dorit
+					var issueSeverityInput = data[a].issueSeverityInput;
+					html += "<tr>";
+					html += "<td>" + issueSeverityInput + "</td>";
+					html += "</tr>";
+				}
+
+				document.getElemetById("data").innerHTML = html;
+
+			 }
+		}
+	</script> -->
+
+</body>
+</html>
